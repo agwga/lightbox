@@ -15,6 +15,7 @@ const Lightbox = (($) => {
 		loadingMessage: '<div class="ekko-lightbox-loader"><div><div></div><div></div></div></div>', // http://tobiasahlin.com/spinkit/
 		leftArrow: '<span>&#10094;</span>',
 		rightArrow: '<span>&#10095;</span>',
+		closeButton: '<span aria-hidden="true">&times;</span>',
 		strings: {
 			close: 'Close',
 			fail: 'Failed to load image:',
@@ -81,7 +82,7 @@ const Lightbox = (($) => {
 			this._isBootstrap3 = $.fn.modal.Constructor.VERSION[0] == 3;
 
 			let h4 = `<h4 class="modal-title">${this._config.title || "&nbsp;"}</h4>`;
-			let btn = `<button type="button" class="close" data-dismiss="modal" aria-label="${this._config.strings.close}"><span aria-hidden="true">&times;</span></button>`;
+			let btn = `<button type="button" class="close" data-dismiss="modal" aria-label="${this._config.strings.close}">${this._config.closeButton}</button>`;
 
 			let header = `<div class="modal-header${this._config.title || this._config.alwaysShowClose ? '' : ' hide'}">`+(this._isBootstrap3 ? btn+h4 : h4+btn)+`</div>`;
 			let footer = `<div class="modal-footer${this._config.footer ? '' : ' hide'}">${this._config.footer || "&nbsp;"}</div>`;
