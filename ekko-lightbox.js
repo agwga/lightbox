@@ -79,12 +79,10 @@ const Lightbox = (($) => {
 			this._modalId = `ekkoLightbox-${Math.floor((Math.random() * 1000) + 1)}`;
 			this._$element = $element instanceof jQuery ? $element : $($element)
 
-			this._isBootstrap3 = $.fn.modal.Constructor.VERSION[0] == 3;
-
 			let h4 = `<h4 class="modal-title">${this._config.title || "&nbsp;"}</h4>`;
 			let btn = `<button type="button" class="close" data-dismiss="modal" aria-label="${this._config.strings.close}">${this._config.closeButton}</button>`;
 
-			let header = `<div class="modal-header${this._config.title || this._config.alwaysShowClose ? '' : ' hide'}">`+(this._isBootstrap3 ? btn+h4 : h4+btn)+`</div>`;
+			let header = `<div class="modal-header${this._config.title || this._config.alwaysShowClose ? '' : ' hide'}">`+(this._config.title ? h4+btn : btn)+`</div>`;
 			let footer = `<div class="modal-footer${this._config.footer ? '' : ' hide'}">${this._config.footer || "&nbsp;"}</div>`;
 			let body = '<div class="modal-body"><div class="ekko-lightbox-container"><div class="ekko-lightbox-item fade in show"></div><div class="ekko-lightbox-item fade"></div></div></div>'
 			let dialog = `<div class="modal-dialog" role="document"><div class="modal-content">${header}${body}${footer}</div></div>`
