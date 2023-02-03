@@ -146,9 +146,10 @@ const Lightbox = (($) => {
 				this._resize(this._wantedWidth, this._wantedHeight)
 			})
 			this._$lightboxContainer
-			.on('touchstart', () => {
-				this._touchstartX = event.changedTouches[0].screenX;
-
+			.on('touchstart', (event) => {
+				if(event.touches.length > 1) {
+					this._touchstartX = event.changedTouches[0].screenX;
+				}
 			})
 			.on('touchend', () => {
 				this._touchendX = event.changedTouches[0].screenX;
